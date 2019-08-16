@@ -1,3 +1,4 @@
+import dotenv from "dotenv";
 import express, { Request, Response } from "express";
 import logger from "./util/logger";
 import bodyParser = require("body-parser");
@@ -12,7 +13,9 @@ class App {
     public app: express.Application;
 
     config(): void {
-        this.app.set("port", process.env.PORT || 3000);
+        dotenv.config();
+        this.app.set("port", process.env.PORT);
+        this.app.set("env", process.env.NODE_ENV);
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: true }));
     }
