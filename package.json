@@ -4,7 +4,7 @@
     "author": "Luis Gutierrez",
     "license": "MIT",
     "scripts": {
-        "start": "node dist/server.js",
+        "start": "npm run build && node dist/server.js",
         "serve": "ts-node-dev --respawn --transpileOnly src/server.ts",
         "build": "rimraf dist && tsc",
         "test": "jest --coverage --verbose",
